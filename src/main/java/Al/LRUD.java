@@ -1,4 +1,4 @@
-package programmers;// 이것이 코딩 테스트다. p111 상하좌우문제
+package Al;// 이것이 코딩 테스트다. p111 상하좌우문제
 import java.util.Scanner;
 
 public class LRUD {

@@ -4,7 +4,6 @@
 package programmers;
 
 import java.util.Arrays;
-import java.util.Locale;
 
 public class 파일저장소 {
     public static void main(String[] args) {

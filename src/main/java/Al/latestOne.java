@@ -1,4 +1,4 @@
-package programmers;
+package Al;
 
 import java.util.Scanner;
 

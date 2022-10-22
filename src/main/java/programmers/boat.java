@@ -28,12 +28,4 @@ public class boat {
             cnt++;
         System.out.println(cnt);
     }
-
-    public void sort(int[] ints){
-        for(int i=0; i<ints.length-1; i++){
-            for (int j=i+1; j<ints.length; j++){
-
-            }
-        }
-    }
 }
