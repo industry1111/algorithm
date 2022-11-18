@@ -1,5 +1,7 @@
 package programmers.leveltwo;
 
+import java.io.IOException;
+
 public class makeJadenCaseString {
     public static void main(String[] args) throws IOException {
 
@@ -20,7 +22,7 @@ public class makeJadenCaseString {
                 }
             }
         }
-        return String.valueOf(arr);
+//        return String.valueOf(arr);
         //테스트케이스 8,9번 충족 못함
     }
 

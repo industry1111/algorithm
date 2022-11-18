@@ -1,19 +1,17 @@
 package programmers;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 class maxminNum {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        System.out.println(solution(br.readline()));
+        System.out.println(solution(br.readLine()));
 
     }
-    public String solution(String s) {
+    public static String solution(String s) {
         String[] arr = s.split(" ");
 
         int min = Integer.parseInt(arr[0]);
