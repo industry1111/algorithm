@@ -1,4 +1,4 @@
-package programmers;
+package programmers.levelOne;
 
 //문제 설명
 //

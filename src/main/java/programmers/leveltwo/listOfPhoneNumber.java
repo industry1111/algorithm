@@ -1,7 +1,9 @@
 package programmers.leveltwo;
 
 
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 * 전화번호부에 적힌 전화번호 중, 한 번호가 다른 번호의 접두어인 경우가 있는지 확인하려 합니다.
@@ -13,9 +15,21 @@ package programmers.leveltwo;
 제한 사항
 phone_book의 길이는 1 이상 1,000,000 이하입니다.
 각 전화번호의 길이는 1 이상 20 이하입니다.
-* */
+
+
+phone_book	                        return
+["119", "97674223", "1195524421"]	false
+["123","456","789"]	                true
+["12","123","1235","567","88"]	    false
+ */
 public class listOfPhoneNumber {
     public static void main(String[] args){
+
+        String[] numbers = {"119", "97674223", "1195524421"};
+
+        
+
+
 
     }
 }

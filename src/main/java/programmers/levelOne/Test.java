@@ -1,4 +1,4 @@
-package programmers;
+package programmers.levelOne;
 
 import javax.imageio.IIOException;
 import java.io.BufferedReader;

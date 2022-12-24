@@ -1,7 +1,7 @@
 //입력값 〉	["F-5 Freedom Fighter", "B-50 Superfortress", "A-10 Thunderbolt II", "F-14 Tomcat"]
 //기댓값 〉	["A-10 Thunderbolt II", "B-50 Superfortress", "F-5 Freedom Fighter", "F-14 Tomcat"]
 
-package programmers;
+package programmers.levelOne;
 
 import java.util.Arrays;
 

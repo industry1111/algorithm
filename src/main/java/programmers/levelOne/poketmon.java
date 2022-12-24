@@ -1,4 +1,4 @@
-package programmers;
+package programmers.levelOne;
 
 import java.util.HashMap;
 import java.util.HashSet;
