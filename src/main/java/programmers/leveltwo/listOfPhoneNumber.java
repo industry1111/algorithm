@@ -2,6 +2,7 @@ package programmers.leveltwo;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,11 +26,17 @@ phone_book	                        return
 public class listOfPhoneNumber {
     public static void main(String[] args){
 
-        String[] numbers = {"119", "97674223", "1195524421"};
+        String[] phone_book = {"119", "97674223", "1195524421"};
 
-        
+        Arrays.sort(phone_book);
 
+        for (int i=0; i< phone_book.length-1; i++) {
 
-
+            if ( phone_book[i+1].startsWith(phone_book[i]) ) {
+                System.out.println("false");
+            }
+        }
     }
+
+    //String.startsWith ( prefix ) prefix로 시작하는 문자열인지 확인 후 boolean 리턴
 }
