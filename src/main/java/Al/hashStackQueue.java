@@ -50,7 +50,7 @@ public class hashStackQueue {
         }
         System.out.println("after push stack.empty() : " + stack.empty() );
         System.out.println("pop stack : " + stack.pop());
-        System.out.println("pek stack : " + stack.peek());
+        System.out.println("peek stack : " + stack.peek());
         System.out.println("search (b) : " + stack.search("b"));
         System.out.println("search (e) : " + stack.search("e"));
 
@@ -65,7 +65,7 @@ public class hashStackQueue {
     * */
     private static Queue<String> getQueue (String[] strA){
 
-        Queue<String> queue = new ArrayDeque<>();
+        Queue<String> queue = new LinkedList<>();
         Queue<String> queue2 = new LinkedList<>();
         for (String str : strA) {
             queue2.add(str);
