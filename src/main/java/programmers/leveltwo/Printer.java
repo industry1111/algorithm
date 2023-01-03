@@ -4,40 +4,55 @@ import java.util.*;
 
 public class Printer {
     public static void main(String[] args) {
-        int[] list = {1, 1, 9, 1, 1, 1};
-        int location = 0;
+        int[] list = {1,1,9,1,1};
+        int location =1;
 
-        Queue<Map<Integer, Integer>> queue = new LinkedList<>();
-        Map<Integer,Integer> map;
 
-        for (int i=0; i<list.length; i++){
+        Directory minDir = new Directory(0,101);
+        Stack<Directory> stack = getStack(list);
 
-            //파일 순서 및 중요도
-            map = new HashMap<>();
-            map.put(i,list[i]);
-            queue.add(map);
+        for(int i=0; i<list.length; i++){
+            if ( minDir.prioritiy > list[i] ) {
+                minDir.location = i;
+                minDir.prioritiy = list[i];
+            }
+            stack.push(new Directory(i,list[i]));
         }
 
-        for (int i=0; i<list.length; i++) {
-            int key = 0;
-            for (Integer integer : queue.peek().keySet()) {
-                key = integer;
-            }
-
-            if (i != 0 && queue.peek().get(key) < list[i]) {
-                queue.add(queue.remove());
-            }
-            System.out.println(queue);
+        System.out.println(minDir.toString());
+        int result = 0;
+        while (!stack.empty()){
+            stack.pop();
         }
+    }
 
-        int result = 1;
+    private static Stack<Directory> getStack(int[] list){
 
-        for (Integer integer : queue.remove().keySet()) {
-            if(location == integer){
-                break;
-            }
-            result++;
-        }
-        System.out.println(result);
+        Stack<Directory> stack = new Stack<>();
+
+
+        return stack;
+    }
+}
+
+class Directory {
+    int location;
+    int prioritiy;
+
+    public Directory() {
+
+    }
+
+    public  Directory(int inptLoacation, int inptPrioritiy) {
+        this.location = inptLoacation;
+        this.prioritiy = inptPrioritiy;
+    }
+
+    @Override
+    public String toString() {
+        return "Directory{" +
+                "location=" + location +
+                ", prioritiy=" + prioritiy +
+                '}' +'\n';
     }
 }
