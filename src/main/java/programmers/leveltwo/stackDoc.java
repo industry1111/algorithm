@@ -1,9 +1,8 @@
 package programmers.leveltwo;
 
-import java.util.Arrays;
 import java.util.Stack;
 
-class stack {
+class stackDoc {
     boolean solution(String s) {
         boolean answer = true;
 
