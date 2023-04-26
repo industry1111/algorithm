@@ -29,7 +29,7 @@ public class Truck {
     public static void main( String[] args) {
 
         int bridgeLength = 2;
-        int weight = 12;
+        int weight = 10;
         int[] truckWeight = {7,4,5,9};
 
         int result = 0;
@@ -39,26 +39,37 @@ public class Truck {
 
     private static int solution(int bridge_length, int weight, int[] truck_weights) {
 
+        int answer = 0;
+        Queue<Integer> q = new LinkedList<Integer>();
+        int current_weight = 0;
 
-        // Deque에 입력
-        Deque<Integer> trucks = new LinkedList<>();
+        for(int i = 0; i < truck_weights.length; i++){
+            int truck = truck_weights[i];
 
-        for ( int i : truck_weights ) {
-            trucks.addFirst(i);
+            while(true){
+                //가장 처음 트럭이 다리를 지나갈 때
+                if(q.isEmpty()){
+                    q.offer(truck);
+                    current_weight += truck;
+                    answer++;
+                    break;
+                }else if(q.size() == bridge_length){ //맨 앞의 트럭이 다리를 완전히 지나가는 순간
+                    System.out.println("answer : " + answer + ", current_weight : " +current_weight+", truck : " + truck );
+                    current_weight -= q.poll();
+                }else{
+                    if(current_weight + truck > weight){ // 다리를 지나가는 트럭과 현재 출발 대기중인 트럭의 무게가 하중보다 클 경우
+                        q.offer(0);
+                        answer++;
+                    }else{ // 하중보다 작을 경우
+                        q.offer(truck);
+                        current_weight += truck;
+                        answer++;
+                        break;
+                    }
+                }
+            }
         }
 
-
-        int tW = 0;         //트럭 무게
-        int passingTW = 0;  //다리위에 올라가 있는 트럭의 무게
-        int t = 0;          // 단위시간
-        int result = 0;
-        while ( !trucks.isEmpty() ) {
-
-
-            passingTW += tW;
-
-        }
-
-       return 0;
+        return answer + bridge_length;
     }
 }
