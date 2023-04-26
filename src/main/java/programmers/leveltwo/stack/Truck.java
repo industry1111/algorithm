@@ -1,5 +1,6 @@
 package programmers.leveltwo.stack;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -38,22 +39,37 @@ public class Truck {
 
     private static int solution(int bridge_length, int weight, int[] truck_weights) {
 
-        // Queue에 입력
-        Queue<Integer> watingTrucks = new LinkedList<>();
+
+        // Deque에 입력
+        Deque<Integer> trucks = new LinkedList<>();
 
         for ( int i : truck_weights ) {
-            watingTrucks.add(i);
+            trucks.addFirst(i);
         }
 
 
         int tW = 0;         //트럭 무게
         int passingTW = 0;  //다리위에 올라가 있는 트럭의 무게
         int t = 0;          // 단위시간
-        while ( !watingTrucks.isEmpty() ) {
+        int result = 0;
+        while ( !trucks.isEmpty() ) {
 
             t++;
+            tW -= trucks.pollFirst();
 
-            if (  / 2 == 0 )
+            if ( tW + passingTW > weight ) {
+
+                if ( t == bridge_length ) {
+
+                }
+
+                t = 0;
+            } else {
+
+            }
+
+            passingTW += tW;
+
         }
 
        return 0;
