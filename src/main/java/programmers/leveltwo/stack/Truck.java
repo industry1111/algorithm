@@ -55,6 +55,8 @@ public class Truck {
         while ( !trucks.isEmpty() ) {
 
 
+            passingTW += tW;
+
         }
 
        return 0;
