@@ -54,21 +54,6 @@ public class Truck {
         int result = 0;
         while ( !trucks.isEmpty() ) {
 
-            t++;
-            tW -= trucks.pollFirst();
-
-            if ( tW + passingTW > weight ) {
-
-                if ( t == bridge_length ) {
-
-                }
-
-                t = 0;
-            } else {
-
-            }
-
-            passingTW += tW;
 
         }
 
