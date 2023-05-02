@@ -1,9 +1,6 @@
 package programmers.leveltwo.dfsBfs;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class distanceOfGameMap {
+public class DistanceOfGameMap {
 
     static int[][]map;
 
