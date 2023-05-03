@@ -54,7 +54,6 @@ public class countIsland {
         col = arr[0].length();
         row = arr.length;
         ArrayList<Integer> list = new ArrayList<>();
-        int sum = 0;
         for (int i=0; i<row;i++) {
             for (int j=0; j<col; j++) {
                 result = 0;

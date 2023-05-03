@@ -3,12 +3,15 @@ package programmers.leveltwo.dfsBfs;
 import java.util.*;
 
 public class DFS {
+
+    static int result;
     public static void main ( String[] args ) {
+
 
         try {
 
             Scanner sc = new Scanner(System.in);
-
+            result =0;
             int nodes = Integer.parseInt(sc.nextLine());
             int n = Integer.parseInt(sc.nextLine());
 
@@ -27,7 +30,9 @@ public class DFS {
             for ( LinkedList<Integer> list : g.adj ) {
                 System.out.println(idx++ +": " +list.toString());
             }
-            g.DFS();
+            g.DFS(1);
+
+            System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,7 +51,10 @@ public class DFS {
          }
 
          /** 노드를 연결 v->w */
-         void addEdge(int v, int w) { adj[v].add(w); }
+         void addEdge(int v, int w) {
+             adj[v].add(w);
+             adj[w].add(v);
+         }
 
          /** DFS에 의해 사용되는 함수 */
          void DFSUtil(int v, boolean visited[]) {
@@ -59,8 +67,10 @@ public class DFS {
              while (i.hasNext()) {
                  int n = i.next();
                  // 방문하지 않은 노드면 해당 노드를 시작 노드로 다시 DFSUtil 호출
-                 if (!visited[n])
+                 if (!visited[n]) {
                      DFSUtil(n, visited); // 순환 호출
+                     result++;
+                 }
              }
          }
 
