@@ -1,4 +1,4 @@
-package programmers.levelOne;
+package swea.d2;
 
 import java.util.Scanner;
 
