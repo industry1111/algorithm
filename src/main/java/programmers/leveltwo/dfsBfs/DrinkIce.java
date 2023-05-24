@@ -1,19 +1,16 @@
-package swea;
-
-import swea.d3.InfinityString;
-
+package programmers.leveltwo.dfsBfs;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.StringTokenizer;
 
-class Solution {
+class DrinkIce {
 
     static int X,Y;
     static int[][] dd = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    static int result;
-    
+    static int size;
+
     //방문 확인용 2차원배열 선언
     static boolean[][] visited;
     public static void main(String[] args) throws Exception {
@@ -36,23 +33,27 @@ class Solution {
 
         //방문 확인 맵 초기화
         visited = new boolean[X][Y];
-        result = 0;
+        ArrayList<Integer> results = new ArrayList<>();
 
-        dfs(0,0, 0 ,map);
-
-        System.out.println("results = " + result);
+        for (int i = 0; i < X; i++) {
+            for (int j = 0; j < Y; j++) {
+                if (!visited[i][j] && map[i][j] != '1') {
+                    size = 0;
+                    dfs(i,j,map);
+                    results.add(size);
+                }
+            }
+        }
+        System.out.println("results = " + results);
 //        for(int test_case = 1; test_case <=T; test_case++) {
 //           String result = "";
 //            System.out.println("#" + test_case + " " + result);
 //        }
     }
 
-    private static void dfs(int dx, int dy, int size,char[][] map) {
-       
-        if( 0 > dx || dx >= X || 0 > dy || dy >= Y || visited[dx][dy] || map[dx][dy] == '0' ) {
-            if (dx == X-1 && dy == Y-1) {
-                result = size;
-            }
+    private static void dfs(int dx, int dy, char[][] map) {
+
+        if( 0 > dx || dx >= X || 0 > dy || dy >= Y || visited[dx][dy] || map[dx][dy] == '1' ) {
             return;
         }
 
@@ -64,8 +65,7 @@ class Solution {
             int nextDx = dx + dd[i][0];
             int nextDy = dy + dd[i][1];
 
-            dfs(nextDx, nextDy, size,map);
-            visited[dx][dy] = false;
+            dfs(nextDx, nextDy, map);
         }
     }
 
