@@ -1,31 +1,24 @@
 package programmers;
 
-import java.util.Arrays;
-import java.util.Stack;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
 
 public class Soution {
     public static void main(String[] args){
-        int[] answer = {70, 50, 80, 50};
-        int limit = 100;
-        int totalWeight = 0;
-        int cnt = 1;
+        int answer = 0;
 
-        Arrays.sort(answer);
+        int a = 1;
+        int b = 7;
 
-        Stack<Integer> weights = new Stack<>();
-        for (int i = 0; i < answer.length; i++) {
-            weights.push(answer[i]);
-        }
+        if (a % 2 == 1) a++;
+        if (b % 2 == 1) b++;
 
-        while (!weights.isEmpty()) {
-            if (limit >= totalWeight + weights.peek()) {
+        answer = ( b/2 - a/2 ) +1;
 
-                totalWeight += weights.pop();
-            } else {
-                cnt++;
-                totalWeight = 0;
-            }
-        }
+
+        System.out.println(answer);
     }
 
 }

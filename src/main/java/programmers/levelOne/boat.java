@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
+
 /*
         무인도에 갇힌 사람들을 구명보트를 이용하여 구출하려고 합니다. 구명보트는 작아서 한 번에 최대 2명씩 밖에 탈 수 없고, 무게 제한도 있습니다.
 
@@ -25,25 +28,26 @@ public class boat {
 
         int[] people = {70,50,50,80};
         int limit  = 100;
-        int cnt = 0;
+        int answer = 0;
 
         Arrays.sort(people);
 
-        System.out.println(Arrays.toString(people));
-        for (int i=0; i<people.length;i++){
-            for (int j=i+1; j<people.length-1; j++){
-                System.out.println(people[j]);
-                if ((people[i] + people[j])<= limit){
-                    cnt++;
-                    people[j] = limit+1;
-                    break;
-                }
-                if (people[j] != limit+1)
-                    cnt++;
-            }
+        Deque<Integer> deque = new LinkedList<>();
+
+        for (int n : people) {
+            deque.push(n);
         }
-        if (people[people.length-1] <limit)
-            cnt++;
-        System.out.println(cnt);
+
+        while (!deque.isEmpty()) {
+            //가장 무거운사람 + 가장 가벼운 사람
+            int max = deque.pollFirst();
+            int min = deque.peekLast();
+            System.out.println("max : " + max + " min " + min);
+            if (min + max <= limit) {
+                deque.pollFirst();
+            }
+            answer++;
+        }
+        System.out.println(answer);
     }
 }
