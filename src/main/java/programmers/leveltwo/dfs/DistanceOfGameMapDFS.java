@@ -1,6 +1,6 @@
-package programmers.leveltwo.dfsBfs;
+package programmers.leveltwo.dfs;
 
-public class DistanceOfGameMap {
+public class DistanceOfGameMapDFS {
 
     static int[][]map;
 

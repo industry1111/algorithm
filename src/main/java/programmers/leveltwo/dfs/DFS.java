@@ -1,4 +1,4 @@
-package programmers.leveltwo.dfsBfs;
+package programmers.leveltwo.dfs;
 
 import java.util.*;
 
@@ -10,6 +10,7 @@ public class DFS {
 
         try {
 
+            //노드 수와 간선의 수를 입력받음
             Scanner sc = new Scanner(System.in);
             result =0;
             int nodes = Integer.parseInt(sc.nextLine());
@@ -19,6 +20,7 @@ public class DFS {
 
             Graph g = new Graph(nodes);
 
+            //입력받은 노드들을 그래프로
             for ( int i=0; i<n; i++ ) {
                 node = sc.nextLine().split(" ");
                 int from = Integer.parseInt(node[0]);

@@ -1,4 +1,5 @@
-package programmers.leveltwo;
+package programmers.leveltwo.dfs;
+
 /*
 n개의 음이 아닌 정수들이 있습니다. 이 정수들을 순서를 바꾸지 않고 적절히 더하거나 빼서 타겟 넘버를 만들려고 합니다.
  예를 들어 [1, 1, 1, 1, 1]로 숫자 3을 만들려면 다음 다섯 방법을 쓸 수 있습니다.
@@ -17,6 +18,22 @@ public class targetNumber {
     static int[] numbers;
     static int target;
     static int result;
+    public  static void main(String[] args) {
+
+        int number[] = {1, 1, 1, 1, 1};
+
+        int target = 3;
+        solution(number,target);
+    }
+
+    private static void solution(int[] numbers, int target) {
+        targetNumber.numbers = numbers;
+        targetNumber.target = target;
+        result = 0;
+
+        dfs(0,0);
+        System.out.println(result);
+    }
 
     private static void dfs(int index, int sum) {
         //2. 탈출조건
@@ -27,22 +44,5 @@ public class targetNumber {
         //1. 수행동작
         dfs(index+1,sum+numbers[index]);
         dfs(index+1,sum-numbers[index]);
-    }
-
-    private static void solution(int[] numbers, int target){
-        targetNumber.numbers = numbers;
-        targetNumber.target = target;
-        result = 0;
-
-        dfs(0,0);
-
-        System.out.println(result);
-    }
-
-    public static void main(String[] args) {
-        numbers = new int[]{1,1,1,1,1};
-        target = 3;
-
-        solution(numbers,target);
     }
 }
