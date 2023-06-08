@@ -18,13 +18,32 @@ package programmers.leveltwo;
 * * */
 public class ExpectedMatchups {
     public static void main(String[] args) {
-        System.out.println(getExponent(16));
-        System.out.println(getExponent(10));
+        System.out.println(solution(8, 12, 9));
     }
 
     public static int solution(int n, int a, int b) {
+        int min = Math.min(a, b);
+        int max = Math.max(a, b);
 
-        return 0;
+        while (true) {
+
+            int minEx = getExponent(min);
+            int maxEx = getExponent(max);
+
+            if(minEx == 1 && maxEx == 1) {
+                return 1;
+            }
+
+            if (minEx == maxEx) {
+                min %= Math.pow(2, maxEx-1);
+                max %= Math.pow(2, maxEx-1);
+                if (max == 0) {
+                    max = (int) Math.pow(2, maxEx-1);
+                }
+            } else {
+                return maxEx;
+            }
+        }
     }
 
     //지수 찾기
