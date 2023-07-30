@@ -1,4 +1,4 @@
-package Al;
+package javaBasic;
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;

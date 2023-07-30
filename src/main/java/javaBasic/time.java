@@ -1,4 +1,4 @@
-package Al;
+package javaBasic;
 
 import java.io.BufferedReader;
 import java.io.IOException;
