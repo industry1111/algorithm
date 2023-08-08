@@ -1,96 +1,54 @@
 package programmers.leveltwo.괄호회전하기;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
 
-public class turnBracket {
+class turnBracket {
+
+    private static final Stack<Character> stack = new Stack<>();
 
     public static void main(String[] args) {
-        String[] testCases = {"[](){}", "}]()[{", "(]", "]]", "()[][", "({[]})"};
+        String[] testCases = {"()[]", "()[]{}", "(]", "]]", "()[][", "({[]})"};
+        boolean[] expected = {true,true,false,false,false,true};
 
         for (int i=0; i<testCases.length; i++) {
             System.out.println(solution(testCases[i]));
+//            System.out.println("expected : " + expected[i] + ", actual : " + solution3(testCases[i]));
         }
     }
 
-    private static int solution(String brackets) {
+    public int solution(String s) {
 
-        int result = 0;
+        int answer = 0;
 
-        char[] bracketArr = brackets.toCharArray();
+        StringBuilder stringBuilder = new StringBuilder(s);
 
-        for (int i=0; i<bracketArr.length; i++) {
+        for (int i = 0; i < s.length(); i++) {
 
-            if (i > 0) {
-                leftShift(bracketArr);
-            }
+            stringBuilder.append(stringBuilder.charAt(0));
+            stringBuilder.deleteCharAt(0);
 
-            if (checkBracket(bracketArr)) {
-                result++;
-            }
-
+            if (correctBracket(stringBuilder.toString().toCharArray()))
+                answer++;
         }
-
-
-
-        return result;
+        return answer;
     }
 
-    private static boolean checkBracket(char[] bracketArr) {
-
-        boolean result = true;
-
-
-        Map<Character,Character> bracketMap = new HashMap<>() {
-            {
-                put(')', '(');
-                put('}', '{');
-                put(']', '[');
-            }
-        };
-
-        Stack<Character> bracketStack = new Stack<>();
-
-        for (char bracket : bracketArr) {
-
-            if (bracket == '(' || bracket == '{' || bracket == '[') {
-                bracketStack.push(bracket);
-            } else {
-
-                if (bracketStack.isEmpty()) {
-                    result = false;
-                    break;
-                }
-
-                if (bracketMap.get(bracket) != bracketStack.pop()) {
-                    result = false;
-                    break;
-                }
-
-            }
+    private  boolean correctBracket(char[] s) {
+        for (char c : s) {
+            if (!(check(c, '(', ')') && check(c, '[', ']') && check(c, '{', '}')))
+                return false;
         }
-
-        if (!bracketStack.isEmpty()) {
-            result = false;
-        }
-
-        return result;
+        return stack.isEmpty();
     }
 
-    private static char[] leftShift(char[] chars) {
-
-        int len = chars.length;
-        char tmp = chars[0];
-
-        for (int i=0; i<len-1; i++) {
-            chars[i] = chars[i+1];
-        }
-
-        chars[len-1] = tmp;
-
-        return  chars;
+    private  boolean check(char c, char a, char b) {
+        if (c == a)
+            stack.push(a);
+        else if (c == b)
+            if (!stack.isEmpty() && stack.peek() == a) stack.pop(); else return false;
+        return true;
     }
+
 
 
 }
