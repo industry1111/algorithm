@@ -16,7 +16,7 @@ class turnBracket {
         }
     }
 
-    public int solution(String s) {
+    public static int solution(String s) {
 
         int answer = 0;
 
@@ -33,7 +33,7 @@ class turnBracket {
         return answer;
     }
 
-    private  boolean correctBracket(char[] s) {
+    private  static boolean correctBracket(char[] s) {
         for (char c : s) {
             if (!(check(c, '(', ')') && check(c, '[', ']') && check(c, '{', '}')))
                 return false;
@@ -41,7 +41,7 @@ class turnBracket {
         return stack.isEmpty();
     }
 
-    private  boolean check(char c, char a, char b) {
+    private  static boolean check(char c, char a, char b) {
         if (c == a)
             stack.push(a);
         else if (c == b)
